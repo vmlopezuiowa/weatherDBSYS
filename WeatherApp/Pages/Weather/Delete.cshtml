@@ -1,0 +1,73 @@
+@page
+@model WeatherApp.Pages.Weather.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Weather</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Temperature)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Temperature)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.FeelsLike)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.FeelsLike)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.WindDirection)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.WindDirection)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.WindSpeed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.WindSpeed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Humidity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Humidity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.AirPressure)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.AirPressure)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Visibility)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Visibility)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.UVIndex)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.UVIndex)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Weather.ZIP" />
+        <input type="hidden" asp-for="Weather.City" />
+        <input type="hidden" asp-for="Weather.State" />
+        <input type="hidden" asp-for="Weather.Day" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
