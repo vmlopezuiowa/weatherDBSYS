@@ -1,12 +1,13 @@
 @page
-@model WeatherApp.Pages.Weather.DetailsModel
+@model WeatherApp.Pages.WeatherView.DeleteModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
 
-<h2>Details</h2>
+<h2>Delete</h2>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Weather</h4>
     <hr />
@@ -60,8 +61,13 @@
             @Html.DisplayFor(model => model.Weather.UVIndex)
         </dd>
     </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-page="./Index">Back to List</a>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Weather.ZIP" />
+        <input type="hidden" asp-for="Weather.City" />
+        <input type="hidden" asp-for="Weather.State" />
+        <input type="hidden" asp-for="Weather.Day" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
 </div>
