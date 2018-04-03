@@ -4,16 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WeatherApp.Models;
 
-namespace WeatherApp.Pages.Weather
+namespace WeatherApp.Pages.WeatherView
 {
-    public class DeleteModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly WeatherApp.Models.WeatherContext _context;
 
-        public DeleteModel(WeatherApp.Models.WeatherContext context)
+        public EditModel(WeatherApp.Models.WeatherContext context)
         {
             _context = context;
         }
@@ -37,22 +38,37 @@ namespace WeatherApp.Pages.Weather
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (id == null)
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return Page();
             }
 
-            Weather = await _context.Weather.FindAsync(id);
+            _context.Attach(Weather).State = EntityState.Modified;
 
-            if (Weather != null)
+            try
             {
-                _context.Weather.Remove(Weather);
                 await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!WeatherExists(Weather.ZIP))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             return RedirectToPage("./Index");
+        }
+
+        private bool WeatherExists(int id)
+        {
+            return _context.Weather.Any(e => e.ZIP == id);
         }
     }
 }

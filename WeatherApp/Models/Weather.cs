@@ -23,7 +23,7 @@ namespace WeatherApp.Models
         public DateTime Day {get; set;}
         public decimal Temperature {get; set;}
         public decimal FeelsLike {get; set;}
-        public decimal WindDirection {get; set;}
+        public string WindDirection {get; set;}
         public decimal WindSpeed {get; set;}
         public decimal Humidity {get; set;}
         public decimal AirPressure {get; set;}

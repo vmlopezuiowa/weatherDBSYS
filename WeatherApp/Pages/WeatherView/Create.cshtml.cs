@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WeatherApp.Models;
 
-namespace WeatherApp.Pages.Weather
+namespace WeatherApp.Pages.WeatherView
 {
     public class CreateModel : PageModel
     {
