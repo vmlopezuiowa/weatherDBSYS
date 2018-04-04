@@ -5,6 +5,10 @@
     <UserSecretsId>aspnet-WeatherApp-8B210879-EA86-4192-AD21-13315BE4B6FA</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\WeatherApp20180403103551 - Web Deploy.pubxml" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
