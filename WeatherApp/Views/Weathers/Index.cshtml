@@ -1,0 +1,127 @@
+﻿@model IEnumerable<WeatherApp.Models.Weather>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeelsLike)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WindDirection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WindSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Humidity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visibility)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UVIndex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sunrise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sunset)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moonrise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Moonset)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.ZIP)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.City)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.State)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Day)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeelsLike)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WindDirection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WindSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Humidity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirPressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visibility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UVIndex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sunrise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sunset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moonrise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moonset)
+            </td>
+            <!-- Don't need these, and they won't work with composite keys anyway
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+    -->
+        </tr>
+}
+    </tbody>
+</table>
