@@ -16,31 +16,27 @@ namespace WeatherApp.Models
         [Key, Column(Order = 0)]
         public int ZIP { get; set; }
         [Key, Column(Order = 1)]
-        public string City { get; set; }
-        [Key, Column(Order = 2)]
-        public string State { get; set; }
-        [Key, Column(Order = 3)]
         [DataType(DataType.Date)]
         public DateTime Day { get; set; }
-        public decimal Temperature { get; set; }
-        public decimal FeelsLike { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        
+        public decimal? Temperature { get; set; }
+        public decimal? FeelsLike { get; set; }
         public string WindDirection { get; set; }
-        public decimal WindSpeed { get; set; }
-        public decimal Humidity { get; set; }
-        public decimal AirPressure { get; set; }
-        public decimal Visibility { get; set; }
-        public decimal UVIndex { get; set; }
+        public decimal? WindSpeed { get; set; }
+        public decimal? Humidity { get; set; }
+        public decimal? AirPressure { get; set; }
+        public decimal? Visibility { get; set; }
+        public decimal? UVIndex { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime Sunrise { get; set; }
+        public TimeSpan? Sunrise { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime Sunset { get; set; }
+        public TimeSpan? Sunset { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime Moonrise { get; set; }
+        public TimeSpan? Moonrise { get; set; }
 
-        [DataType(DataType.Time)]
-        public DateTime Moonset { get; set; }
+        public TimeSpan? Moonset { get; set; }
     }
 }
