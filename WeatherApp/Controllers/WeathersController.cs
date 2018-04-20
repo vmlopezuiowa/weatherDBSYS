@@ -20,9 +20,35 @@ namespace WeatherApp.Controllers
         }
 
         // GET: Weathers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Weather.ToListAsync());
+            ViewData["ZIPSortParm"] = String.IsNullOrEmpty(sortOrder) ? "ZIP_desc" : "ZIP";
+            ViewData["DateSortParm"] = sortOrder == "Day" ? "day_desc" : "Day";
+            var weathers = from w in _context.Weather
+                           select w;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                weathers = weathers.Where(s => s.ZIP.ToString().Contains(searchString)
+                                       || s.Day.ToString().Contains(searchString) 
+                                       || s.City.ToString().Contains(searchString)
+                                       || s.State.ToString().Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "ZIP_desc":
+                    weathers = weathers.OrderByDescending(w => w.ZIP);
+                    break;
+                case "Day":
+                    weathers = weathers.OrderBy(w => w.Day);
+                    break;
+                case "Day_desc":
+                    weathers = weathers.OrderByDescending(w => w.Day);
+                    break;
+                default:
+                    weathers = weathers.OrderBy(w => w.ZIP);
+                    break;
+            }
+            return View(await weathers.AsNoTracking().ToListAsync());
         }
 
         // GET: Weathers/Details/5

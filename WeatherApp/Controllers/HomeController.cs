@@ -22,9 +22,9 @@ namespace WeatherApp.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Feedback()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Your feedback page.";
 
             return View();
         }
