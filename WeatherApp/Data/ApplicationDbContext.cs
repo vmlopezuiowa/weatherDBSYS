@@ -15,6 +15,8 @@ namespace WeatherApp.Data
         {
         }
         public DbSet<Weather> Weather { get; set; }
+        public DbSet<Weather> WeatherRise { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
