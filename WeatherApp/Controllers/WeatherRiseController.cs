@@ -11,11 +11,11 @@ using WeatherApp.Models;
 
 namespace WeatherApp.Controllers
 {
-    public class WeathersController : Controller
+    public class WeatherRiseController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public WeathersController(ApplicationDbContext context)
+        public WeatherRiseController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -25,11 +25,11 @@ namespace WeatherApp.Controllers
         {
             ViewData["ZIPSortParm"] = String.IsNullOrEmpty(sortOrder) ? "ZIP_desc" : "ZIP";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "day_desc" : "Date";
-            var weathers = from w in _context.Weather
+            var WeatherRise = from w in _context.WeatherRise
                            select w;
             if (!String.IsNullOrEmpty(searchString))
             {
-                weathers = weathers.Where(s => s.ZIP.ToString().Contains(searchString)
+                WeatherRise = WeatherRise.Where(s => s.ZIP.ToString().Contains(searchString)
                                        || s.Date.ToString(CultureInfo.CurrentCulture).Contains(searchString) 
                                        || s.City.ToString().Contains(searchString)
                                        || s.State.ToString().Contains(searchString));
@@ -37,19 +37,19 @@ namespace WeatherApp.Controllers
             switch (sortOrder)
             {
                 case "ZIP_desc":
-                    weathers = weathers.OrderByDescending(w => w.ZIP);
+                    WeatherRise = WeatherRise.OrderByDescending(w => w.ZIP);
                     break;
                 case "Date":
-                    weathers = weathers.OrderBy(w => w.Date);
+                    WeatherRise = WeatherRise.OrderBy(w => w.Date);
                     break;
                 case "Date_desc":
-                    weathers = weathers.OrderByDescending(w => w.Date);
+                    WeatherRise = WeatherRise.OrderByDescending(w => w.Date);
                     break;
                 default:
-                    weathers = weathers.OrderBy(w => w.ZIP);
+                    WeatherRise = WeatherRise.OrderBy(w => w.ZIP);
                     break;
             }
-            return View(await weathers.AsNoTracking().ToListAsync());
+            return View(await WeatherRise.AsNoTracking().ToListAsync());
         }
 
         // GET: Weathers/Details/5
@@ -60,7 +60,7 @@ namespace WeatherApp.Controllers
                 return NotFound();
             }
 
-            var weather = await _context.Weather
+            var weather = await _context.WeatherRise
                 .SingleOrDefaultAsync(m => m.ZIP == id);
             if (weather == null)
             {
@@ -70,7 +70,7 @@ namespace WeatherApp.Controllers
             return View(weather);
         }
 
-        // GET: Weathers/Create
+        // GET: WeatherRise/Create
         public IActionResult Create()
         {
             return View();
@@ -100,7 +100,7 @@ namespace WeatherApp.Controllers
                 return NotFound();
             }
 
-            var weather = await _context.Weather.SingleOrDefaultAsync(m => m.ZIP == id);
+            var weather = await _context.WeatherRise.SingleOrDefaultAsync(m => m.ZIP == id);
             if (weather == null)
             {
                 return NotFound();
@@ -113,9 +113,9 @@ namespace WeatherApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ZIP,City,State,Day,Temperature,FeelsLike,WindDirection,WindSpeed,Humidity,AirPressure,Visibility,UVIndex,Sunrise,Sunset,Moonrise,Moonset")] Weather weather)
+        public async Task<IActionResult> Edit(int id, [Bind("ZIP,City,State,Day,Temperature,FeelsLike,WindDirection,WindSpeed,Humidity,AirPressure,Visibility,UVIndex,Sunrise,Sunset,Moonrise,Moonset")] WeatherRise WeatherRise)
         {
-            if (id != weather.ZIP)
+            if (id != WeatherRise.ZIP)
             {
                 return NotFound();
             }
@@ -124,12 +124,12 @@ namespace WeatherApp.Controllers
             {
                 try
                 {
-                    _context.Update(weather);
+                    _context.Update(WeatherRise);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WeatherExists(weather.ZIP))
+                    if (!WeatherExists(WeatherRise.ZIP))
                     {
                         return NotFound();
                     }
@@ -140,7 +140,7 @@ namespace WeatherApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(weather);
+            return View(WeatherRise);
         }
 
         // GET: Weathers/Delete/5
@@ -151,7 +151,7 @@ namespace WeatherApp.Controllers
                 return NotFound();
             }
 
-            var weather = await _context.Weather
+            var weather = await _context.WeatherRise
                 .SingleOrDefaultAsync(m => m.ZIP == id);
             if (weather == null)
             {
@@ -166,15 +166,15 @@ namespace WeatherApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var weather = await _context.Weather.SingleOrDefaultAsync(m => m.ZIP == id);
-            _context.Weather.Remove(weather);
+            var weather = await _context.WeatherRise.SingleOrDefaultAsync(m => m.ZIP == id);
+            _context.WeatherRise.Remove(weather);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool WeatherExists(int id)
         {
-            return _context.Weather.Any(e => e.ZIP == id);
+            return _context.WeatherRise.Any(e => e.ZIP == id);
         }
     }
 }

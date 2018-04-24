@@ -21,6 +21,7 @@ namespace WeatherApp.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        [Key, Column(Order = 2)]
         [DataType(DataType.Time)]
         public TimeSpan Time { get; set; }
 

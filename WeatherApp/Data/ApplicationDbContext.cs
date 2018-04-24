@@ -15,7 +15,8 @@ namespace WeatherApp.Data
         {
         }
         public DbSet<Weather> Weather { get; set; }
-        public DbSet<Weather> WeatherRise { get; set; }
+        public DbSet<NightAndDay> NightAndDay { get; set; }
+        public DbSet<WeatherRise> WeatherRise { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -24,6 +25,8 @@ namespace WeatherApp.Data
                 .HasKey(c => new { c.Time, c.ZIP,  c.Date });
             builder.Entity<NightAndDay>()
                 .HasKey(c => new { c.ZIP,  c.Date });
+            builder.Entity<WeatherRise>()
+                .HasKey(c => new { c.ZIP, c.Date, c.Time });
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
