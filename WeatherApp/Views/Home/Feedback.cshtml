@@ -1,17 +1,26 @@
 ﻿@{
     ViewData["Title"] = "Feedback";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<center>
+    <p>
+        <br />
+        Feedback
+        <br />
+    </p>
+    <p>
+        <br />
+        Rate us:
+        <select>
+            <option value="1">1 (Bad)</option>
+            <option value="2">2</option>
+            <option value="3">3 (Average)</option>
+            <option value="4">4</option>
+            <option value="5">5 (Good)</option>
+        </select>
+    </p>
+    <p>
+        <br />
+        <textarea rows="4" cols="50">Leave a comment...
+    </textarea>
+    </p>
+</center>
