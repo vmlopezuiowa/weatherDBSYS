@@ -8,7 +8,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WeatherApp.Models
 {
-    public class Weather
+    [Table("WeatherRiseView")]
+    public class WeatherRise
     {
         // zip, city, state, time, temperature, feelslike, 
         // humidity, windspeed, airpressure, visibility, uv index
@@ -34,6 +35,15 @@ namespace WeatherApp.Models
         public decimal? AirPressure { get; set; }
         public decimal? Visibility { get; set; }
         public decimal? UVIndex { get; set; }
+
+        [DataType(DataType.Time)]
+        public TimeSpan? Sunrise { get; set; }
+        [DataType(DataType.Time)]
+        public TimeSpan? Sunset { get; set; }
+        [DataType(DataType.Time)]
+        public TimeSpan? Moonrise { get; set; }
+        [DataType(DataType.Time)]
+        public TimeSpan? Moonset { get; set; }
 
     }
 }

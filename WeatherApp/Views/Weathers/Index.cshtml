@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WeatherApp.Models.Weather>
+﻿@using Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore
+@model IEnumerable<WeatherApp.Models.WeatherRise>
 
 @{
     ViewData["Title"] = "Index";
@@ -21,44 +22,46 @@
 </form>
 <table class="table">
     <thead>
-        <tr>
+    <tr>
 
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["ZIPSortParm"]">@Html.DisplayNameFor(model => model.ZIP)</a> 
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Day)</a>
-</th>
-            <th>
-                @Html.DisplayNameFor(model => model.Temperature)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FeelsLike)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WindDirection)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WindSpeed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Humidity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AirPressure)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Visibility)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UVIndex)
-            </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["ZIPSortParm"]">@Html.DisplayNameFor(model => model.ZIP)</a> 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Date)</a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Temperature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeelsLike)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WindDirection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WindSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Humidity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AirPressure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Visibility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UVIndex)
+        </th>
+    </tr>
+    <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Sunrise)
             </th>
@@ -71,7 +74,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Moonset)
             </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
@@ -87,7 +90,7 @@
                 @Html.DisplayFor(modelItem => item.State)
             </th>
             <th>
-                @Html.DisplayFor(modelItem => item.Day)
+                @Html.DisplayFor(modelItem => item.Date)
             </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Temperature)
