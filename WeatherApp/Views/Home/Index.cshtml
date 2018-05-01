@@ -2,19 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 <center>
-<p>
-    <br />
-    <div class="topnav">
-        <input type="text" placeholder="    Enter City / State / Zip...">
+    <p>
+        <h2>Weather Database</h2>
+        <h3>CS:4400 Group 7</h3>
+        <hr />
+    </p>
+    <p>
+        <form asp-action="Index" method="get">
+            <div class="form-actions no-color">
+    <p>
+        <input type="text" placeholder="    Enter City / Zip / State    " name="SearchString" value="@ViewData["currentFilter"]" />
+        <button type="submit" class="btn btn-default"><a href="https://localhost:44392/Weathers">Search</button></a>
+    </p>
     </div>
-</p>
-<p>
-    OR
-</p>
-<p>
-    <button type="button">Login</button>
-</p>
-<p>
-    New? <u>Create Account.</u>
-</p>
+    </form>
+    </p>
+    <p>
+        <b>OR</b>
+    </p>
+    <p>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default"><a href="https://localhost:44392/Account/Login">Log in</button></a>
+        </div>
+    </p>
+    <p>
+        <b>New? </b><a href="https://localhost:44392/Account/Register">Create Account.</a>
+    </p>
+    <hr />
+    <p>Nicholas Goodman, Vincent Lopez Tyler Timm, Joaquin Reyes </p>
 </center>

@@ -1,26 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Feedback";
 }
-<center>
+
     <p>
-        <br />
-        Feedback
-        <br />
+        <h2>Feedback</h2>
     </p>
-    <p>
-        <br />
-        Rate us:
-        <select>
-            <option value="1">1 (Bad)</option>
-            <option value="2">2</option>
-            <option value="3">3 (Average)</option>
-            <option value="4">4</option>
-            <option value="5">5 (Good)</option>
-        </select>
-    </p>
-    <p>
-        <br />
-        <textarea rows="4" cols="50">Leave a comment...
+        <p>
+            <h3>Rate us:</h3>
+            <hr />
+            <select>
+                <option value="1">1 (Bad)</option>
+                <option value="2">2</option>
+                <option value="3">3 (Average)</option>
+                <option value="4">4</option>
+                <option value="5">5 (Good)</option>
+            </select>
+        </p>
+        <p>
+            <br />
+            <textarea rows="4" cols="50">Leave a comment...
     </textarea>
-    </p>
-</center>
+            <form method="post" action="mailto:joaquin-reyes@uiowa.edu">
+                <input type="submit" rows="4" cols="50" value="Submit" />
+            </form>
+        </p>
+
