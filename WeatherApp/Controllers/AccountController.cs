@@ -229,7 +229,7 @@ namespace WeatherApp.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    /*
+                    
                     if (!await RoleManager.RoleExistsAsync("Admin"))
                     {
                         var users = new IdentityRole("Admin");
@@ -241,7 +241,7 @@ namespace WeatherApp.Controllers
                             _logger.LogInformation(3, "User Created");
                         }
                     }
-                    */
+                    
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
