@@ -19,13 +19,11 @@ namespace WeatherApp.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [DataType(DataType.Time)]
-        public TimeSpan? Sunrise { get; set; }
+        public TimeSpan Sunrise { get; set; }
 
-        public TimeSpan? Sunset { get; set; }
+        public TimeSpan Sunset { get; set; }
 
-        public TimeSpan? Moonrise { get; set; }
-
-        public TimeSpan? Moonset { get; set; }
+        public TimeSpan Moonrise { get; set; }
+        public TimeSpan Moonset { get; set; }
     }
 }

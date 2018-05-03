@@ -24,7 +24,14 @@
         <tr>
 
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["ZIPSortParm"]">@Html.DisplayNameFor(model => model.ZIP)</a> 
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ZIPSortParm"]">@Html.DisplayNameFor(model => model.ZIP)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Date)</a>
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.City)
@@ -32,9 +39,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.State)
             </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Date)</a>
-</th>
+
             <th>
                 @Html.DisplayNameFor(model => model.Temperature)
             </th>
@@ -70,14 +75,18 @@
                 @Html.DisplayFor(modelItem => item.ZIP)
             </th>
             <th>
+                @Html.DisplayFor(modelItem => item.Date)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Time)
+            </th>
+            <th>
                 @Html.DisplayFor(modelItem => item.City)
             </th>
             <th>
                 @Html.DisplayFor(modelItem => item.State)
             </th>
-            <th>
-                @Html.DisplayFor(modelItem => item.Date)
-            </th>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Temperature)
             </td>
@@ -102,7 +111,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UVIndex)
             </td>
-            
+
             <!-- Don't need these, and they won't work with composite keys anyway
     <td>
         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

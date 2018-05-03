@@ -25,7 +25,7 @@ namespace WeatherApp.Controllers
         {
             ViewData["ZIPSortParm"] = String.IsNullOrEmpty(sortOrder) ? "ZIP_desc" : "ZIP";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "day_desc" : "Date";
-            var WeatherRise = from w in _context.WeatherRise
+            var WeatherRise = from w in _context.Weather
                            select w;
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -60,7 +60,7 @@ namespace WeatherApp.Controllers
                 return NotFound();
             }
 
-            var weather = await _context.WeatherRise
+            var weather = await _context.Weather
                 .SingleOrDefaultAsync(m => m.ZIP == id);
             if (weather == null)
             {
@@ -100,7 +100,7 @@ namespace WeatherApp.Controllers
                 return NotFound();
             }
 
-            var weather = await _context.WeatherRise.SingleOrDefaultAsync(m => m.ZIP == id);
+            var weather = await _context.Weather.SingleOrDefaultAsync(m => m.ZIP == id);
             if (weather == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace WeatherApp.Controllers
                 return NotFound();
             }
 
-            var weather = await _context.WeatherRise
+            var weather = await _context.Weather
                 .SingleOrDefaultAsync(m => m.ZIP == id);
             if (weather == null)
             {
@@ -166,15 +166,15 @@ namespace WeatherApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var weather = await _context.WeatherRise.SingleOrDefaultAsync(m => m.ZIP == id);
-            _context.WeatherRise.Remove(weather);
+            var weather = await _context.Weather.SingleOrDefaultAsync(m => m.ZIP == id);
+            _context.Weather.Remove(weather);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool WeatherExists(int id)
         {
-            return _context.WeatherRise.Any(e => e.ZIP == id);
+            return _context.Weather.Any(e => e.ZIP == id);
         }
     }
 }

@@ -20,7 +20,6 @@ namespace WeatherApp.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [DataType(DataType.Time)]
         public TimeSpan Time { get; set; }
 
         public string City { get; set; }
