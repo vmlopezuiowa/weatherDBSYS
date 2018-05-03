@@ -15,9 +15,9 @@ namespace WeatherApp.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Account()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Your account page.";
 
             return View();
         }
