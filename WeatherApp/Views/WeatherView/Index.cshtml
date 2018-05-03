@@ -37,18 +37,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Weather[0].UVIndex)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Weather[0].Sunrise)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Weather[0].Sunset)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Weather[0].Moonrise)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Weather[0].Moonset)
-                </th>
+
             <th></th>
         </tr>
     </thead>
@@ -79,18 +68,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UVIndex)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sunrise)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sunset)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Moonrise)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Moonset)
-            </td>
+
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

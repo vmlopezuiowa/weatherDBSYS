@@ -33,7 +33,7 @@
                 @Html.DisplayNameFor(model => model.State)
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Day)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Date)</a>
 </th>
             <th>
                 @Html.DisplayNameFor(model => model.Temperature)
@@ -59,18 +59,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.UVIndex)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sunrise)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sunset)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Moonrise)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Moonset)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -87,7 +76,7 @@
                 @Html.DisplayFor(modelItem => item.State)
             </th>
             <th>
-                @Html.DisplayFor(modelItem => item.Day)
+                @Html.DisplayFor(modelItem => item.Date)
             </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Temperature)
@@ -113,18 +102,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UVIndex)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sunrise)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sunset)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Moonrise)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Moonset)
-            </td>
+            
             <!-- Don't need these, and they won't work with composite keys anyway
     <td>
         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

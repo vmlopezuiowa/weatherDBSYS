@@ -25,16 +25,21 @@ namespace WeatherApp.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
 
+
+        private RoleManager<IdentityRole> RoleManager { get; }
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            RoleManager<IdentityRole> roleManager)
+            
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            RoleManager = roleManager;
         }
 
         [TempData]
@@ -224,6 +229,19 @@ namespace WeatherApp.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    
+                    if (!await RoleManager.RoleExistsAsync("Admin"))
+                    {
+                        var users = new IdentityRole("Admin");
+                        var res = await RoleManager.CreateAsync(users);
+                        if(res.Succeeded)
+                        {
+                            await _userManager.AddToRoleAsync(user, "Admin");
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            _logger.LogInformation(3, "User Created");
+                        }
+                    }
+                    
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
