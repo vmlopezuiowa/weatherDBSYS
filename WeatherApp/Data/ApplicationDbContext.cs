@@ -16,6 +16,7 @@ namespace WeatherApp.Data
         }
         public DbSet<Weather> Weather { get; set; }
         public DbSet<NightAndDay> NightAndDay { get; set; }
+        public DbSet<Feedback> Feedback { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
