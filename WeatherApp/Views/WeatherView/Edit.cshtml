@@ -1,0 +1,93 @@
+@page
+@model WeatherApp.Views.WeatherView.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Weather</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Weather.ZIP" />
+            <input type="hidden" asp-for="Weather.City" />
+            <input type="hidden" asp-for="Weather.State" />
+            <input type="hidden" asp-for="Weather.Day" />
+            <div class="form-group">
+                <label asp-for="Weather.Temperature" class="control-label"></label>
+                <input asp-for="Weather.Temperature" class="form-control" />
+                <span asp-validation-for="Weather.Temperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.FeelsLike" class="control-label"></label>
+                <input asp-for="Weather.FeelsLike" class="form-control" />
+                <span asp-validation-for="Weather.FeelsLike" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.WindDirection" class="control-label"></label>
+                <input asp-for="Weather.WindDirection" class="form-control" />
+                <span asp-validation-for="Weather.WindDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.WindSpeed" class="control-label"></label>
+                <input asp-for="Weather.WindSpeed" class="form-control" />
+                <span asp-validation-for="Weather.WindSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.Humidity" class="control-label"></label>
+                <input asp-for="Weather.Humidity" class="form-control" />
+                <span asp-validation-for="Weather.Humidity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.AirPressure" class="control-label"></label>
+                <input asp-for="Weather.AirPressure" class="form-control" />
+                <span asp-validation-for="Weather.AirPressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.Visibility" class="control-label"></label>
+                <input asp-for="Weather.Visibility" class="form-control" />
+                <span asp-validation-for="Weather.Visibility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.UVIndex" class="control-label"></label>
+                <input asp-for="Weather.UVIndex" class="form-control" />
+                <span asp-validation-for="Weather.UVIndex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.Sunrise" class="control-label"></label>
+                <input asp-for="Weather.Sunrise" class="form-control" />
+                <span asp-validation-for="Weather.Sunrise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.Sunset" class="control-label"></label>
+                <input asp-for="Weather.Sunset" class="form-control" />
+                <span asp-validation-for="Weather.Sunset" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.Moonrise" class="control-label"></label>
+                <input asp-for="Weather.Moonrise" class="form-control" />
+                <span asp-validation-for="Weather.Moonrise" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weather.Moonset" class="control-label"></label>
+                <input asp-for="Weather.Moonset" class="form-control" />
+                <span asp-validation-for="Weather.Moonset" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

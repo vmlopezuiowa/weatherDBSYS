@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WeatherApp.Models.NightAndDay>
+
+@{
+    ViewData["Title"] = "NightAndDay";
+}
+
+<h2>NightAndDay</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sunrise)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sunset)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Moonrise)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Moonset)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sunrise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sunset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moonrise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Moonset)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
