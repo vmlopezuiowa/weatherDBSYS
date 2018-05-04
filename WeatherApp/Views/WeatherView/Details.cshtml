@@ -1,0 +1,91 @@
+@page
+@model WeatherApp.Views.WeatherView.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Weather</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Temperature)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Temperature)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.FeelsLike)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.FeelsLike)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.WindDirection)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.WindDirection)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.WindSpeed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.WindSpeed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Humidity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Humidity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.AirPressure)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.AirPressure)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Visibility)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Visibility)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.UVIndex)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.UVIndex)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Sunrise)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Sunrise)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Sunset)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Sunset)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Moonrise)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Moonrise)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weather.Moonset)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weather.Moonset)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-page="./Index">Back to List</a>
+</div>
